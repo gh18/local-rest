@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include("partials/head.ejs") %>
+    </head>
+    <body>
+        <%- include("partials/header.ejs") %>
+        <div class="container columns2">
+            <div style="margin-top: 30px;">
+                <h1>Reserve a Table:</h1>
+                <form method="POST" class="form" action="/reserve_table">
+                    SPACE:
+                    <fieldset class="form__space_type-container">
+                        <input
+                            type="radio"
+                            name="space_type"
+                            class="form__radio-space_type"
+                            id="space-1"
+                            value="Sherlock Holmes"
+                            checked
+                        />
+                        <label class="form__label-space_type" for="space-1" tabindex="0">
+                            <span class="form__space_type-name">Sherlock Holmes</span>
+                        </label>
+
+                        <input
+                            type="radio"
+                            name="space_type"
+                            class="form__radio-space_type"
+                            id="space-2"
+                            value="Dr. Watson"
+                        />
+                        <label class="form__label-space_type" for="space-2" tabindex="0">
+                            <span class="form__space_type-name">Dr. Watson</span>
+                        </label>
+                    </fieldset>
+                    <br>
+
+                    <fieldset class="tables_grid">
+                        <input type="radio" name="table_radio" class="table__radio" id="table1" value="Table 1"/>
+                        <label class="table__label" for="table1" tabindex="0"><span class="form__space_type-name">Table 1</span></label>
+                        <input type="radio" name="table_radio" class="table__radio" id="table2" value="Table 2"/>
+                        <label class="table__label" for="table2" tabindex="0"><span class="form__space_type-name">Table 2</span></label>
+                        <input type="radio" name="table_radio" class="table__radio" id="table3" value="Table 3"/>
+                        <label class="table__label" for="table3" tabindex="0"><span class="form__space_type-name">Table 3</span></label>
+                        <input type="radio" name="table_radio" class="table__radio" id="table4" value="Table 4"/>
+                        <label class="table__label" for="table4" tabindex="0"><span class="form__space_type-name">Table 4</span></label>
+                    </fieldset>
+                    <br>
+                    DATE: <input type="date" name="date" id="">
+                    <br>
+                    TIME: <input type="time" name="time" id="" min="12:00" max="22:00">
+                    <br>
+                    PERSONS: <input type="number" name="persons" id="" value=1 min=1>
+                    <br>
+                    ADDITIONAL INFO: <br> <textarea name="info" id="" cols="50" rows="10" placeholder="Sentiments:" style="resize:none;"></textarea> <br>
+                    <input type="submit" value="Book" class="form__button-reserve">
+                </form>
+            </div>
+            <div class="container-2columns-imagecol">
+                <img src="images/dining-room.jpg" id="dining-room-image" alt="Dining Room Picture" style="width: 70%; border-radius: 20px; margin-bottom: 30px;">
+            </div>
+        </div>
+        <%- include("partials/footer.ejs") %>
+        <script type="text/javascript">
+            var image = document.getElementById("dining-room-image");
+             document.getElementById("space-1").onchange = function() {
+               image.src = "images/dining-room.jpg"
+             }
+             document.getElementById("space-2").onchange = function() {
+               image.src = "images/bar.jpg"
+             }
+        </script>
+    </body>
+</html>

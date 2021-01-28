@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include("partials/head.ejs") %>
+    </head>>
+        <body>
+            <%- include("partials/header.ejs") %>
+            <div class="container">
+                <div class="floater">
+                    <div class="floater-content">
+                        <h1 style="font-size: 60px; color:rgb(0, 0, 0)">221b Baker St</h1>
+                        <p style="font-size: 40px; color:rgb(0, 0, 0)">STAKE HOUSE</p>
+                    </div>
+                </div>
+
+                <div class="floater-block">
+                    <h1> CHEF'S PICKS </h1>
+                </div>
+
+                <a href="#preview-1" id="preview-1-link"></a>
+                <a href="#preview-2" id="preview-2-link"></a>
+
+                <% [1].map(x => { %>
+                    <article class="item" onclick="document.getElementById('preview-1-link').click()">
+                        <a><img src="images/sirloin-steak.jpg" class="item_picture"/></a>
+                        <div class="contents">
+                          <h2>SIRLOIN STEAK</h2>
+                          <p class="info"><b>1300 RUR</b>
+                          
+                          The most tender part of a farmer's cow, sir! 
+                          Best in London, if you'd like my opinion.</p>
+                        </div>
+                      </article>
+                      <article class="item" onclick="document.getElementById('preview-2-link').click()">
+                        <a><img src="images/salmon.jpg" class="item_picture"/></a>
+                        <div class="contents">
+                          <h2>GRILLED SALMON</h2>
+                          <p class="info"><b>200 RUR / 100 g.</b>
+              
+                            Caught legally in Wolveridge an hour ago.
+                            Comes with garlick and butter, sir!</p>
+                        </div>
+                      </article>
+                <% }) %>
+
+                <div class="floater-block" style="margin-top: 40px; margin-bottom: 40px;">
+                    <a class="button-default" href="/reserve_table">RESERVE TABLE</a>
+                </div>
+
+                <div id="preview-1" class="modal">
+                    <div class="modal-content">
+                        <a href="#close" title="Close" class="close">x</a>
+                        <div class="modal-body">
+                            <img class="picture" src="images/sirloin-steak.jpg" alt="Steak image">
+                            <h3 class="modal-title">SIRLOIN STEAK</h3>
+                            <p class="info">1300 RUR
+
+                                Nutrition Facts:
+                                    Calories: 50
+                                    Total Fat: 7 g
+                                    Total Carbohydrate: 20 g
+                                    Proteins: 60 g</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="preview-2" class="modal">
+                    <div class="modal-content">
+                        <a href="#close" title="Close" class="close">x</a>
+                        <div class="modal-body">
+                            <img class="picture" src="images/salmon.jpg" alt="Salmon image">
+                            <h3 class="modal-title">SIRLOIN STEAK</h3>
+                            <p class="info">200 RUR / 100 g
+                                
+                                Nutrition Facts:
+                                    Calories: 22
+                                    Total Fat: 6 g
+                                    Total Carbohydrate: 12 g
+                                    Proteins: 54 g</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include("partials/footer.ejs") %>
+        </body>
+</html>

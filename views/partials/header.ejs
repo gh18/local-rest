@@ -1,0 +1,15 @@
+<header>
+    <div class="header-content">
+        <a class="header-logo" href="/">221b Baker St</a>
+        <div class="header-links">
+          <% if(!user){ %>  
+            <a href="/reserve_table" class="header-services">Reserve Table</a> &nbsp;
+            <a href="/login" class="header-services"">Login</a> &nbsp;
+          <% } else { %>
+            <a href="/logout" class="header-services"">Log out</a> &nbsp;
+            <a href="/reserve_table" class="header-services">Reserve Table</a> &nbsp;
+            <a href="/dashboard" class="header-services"">Personal Account</a> &nbsp;
+          <% } %>
+        </div>
+    </div>
+</header>

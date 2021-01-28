@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include("partials/head.ejs") %>
+    </head>
+    <body>
+        <%- include("partials/header.ejs") %>
+        <div class="container">
+            <h1><% if(user){ %> <%= user.username %> <% } %></h1>
+            <h2>Order information</h2>
+            <div>
+                <% if(reservations.length === 0) { %>
+                    No orders yet
+                <% } %>
+                <% for(var i = 0;i < reservations.length;i++){ item=reservations[i]; %>
+                    <div class="reservations_info" id="table_<%- item['id'] %>">
+                        <h3>Table</h3>
+                        <p>QR code to get seated:</p> <div style="text-align: center;"><img src="/qr/<%= item['id'] %>" alt="QRCode"></div>  <br>
+                        Space: <%= item['space'] %>  <br>
+                        <%= item['table'] %> <br>
+                        Persons: <%= item['persons'] %> <br>
+                        Date: <%= item['date'] %>  <br>
+                        Time: <%= item['time'] %>  <br>
+                        <hr>
+                        Additional info: <% if(item['info']){ %> <%= item['info'] %> <% } else{ %> None <% } %>  <br>
+                        <button onclick="cancelOrder('<%= item['id'] %>');">Cancel order</button>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <%- include("partials/footer.ejs") %>
+        <script type="text/javascript">
+            function cancelOrder(id){
+              fetch('/delete_table', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify({tableId: id})
+              }).then(result=>{
+                result.json().then(data=>{
+                  if(data.successMessage === "deleted"){
+                    document.getElementById("table_"+id).remove()
+                  }
+                })
+              });
+            }
+        </script>
+    </body>
+</html>

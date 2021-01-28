@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include("partials/head.ejs") %>
+    </head>
+    <body>
+        <%- include("partials/header.ejs") %>
+        <div class="container">
+            <%- include("partials/error_msg.ejs") %>
+            <form class="auth-form" method="post">
+              <h1>Registration</h1>
+              <label for="username">Username:</label> <input class="auth-form__input" type="text" name="username"> <br>
+              <label for="email">&nbsp&nbsp&nbspEmail&nbsp:</label> <input class="auth-form__input" type="text" name="email" value="example@example.com"> <br>
+              <label for="phone">&nbsp&nbsp&nbspPhone:</label> <input class="auth-form__input" type="text" name="phone_number" value="80000000000"> <br>
+              <label for="password">Password:</label> <input class="auth-form__input" type="password" name="user_password"> <br>
+              <p><input type="checkbox" name="agree_rules" id="agree_rules" required> <label for="agree_rules">I Accept<a href=''> the User Agreement</a></label></p>
+              <input type="submit" class="button-default-s" value="Registration">
+            </form>
+        </div>
+        <%- include("partials/footer.ejs") %>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <%- include("partials/head.ejs") %>
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %>
+        <div class="container">
+        <h1><% if(user){ %> <%= user.username %> <% } %>, You Reserved a Table!</h1>
+        <h2>Information</h2>
+        <p>QRCode:</p> <div style="text-align: center;"><img src="/qr/<%= tableInfo._id %>" alt="QRCode"></div>
+        <b>Space:</b> <%= tableInfo.space %> <br>
+        <%= tableInfo.table %> <br>
+        <b>Persons:</b> <%= tableInfo.persons %> <br>
+        <b>Time:</b> <%= tableInfo.date %> <%= tableInfo.time %> <br>
+        <% if(tableInfo.info){ %>
+        <b>Additional Info:</b> <%= tableInfo.info %>  <br>
+        <% } %>
+        </div>
+        <%- include("partials/footer.ejs") %>
+  </body>
+</html>
